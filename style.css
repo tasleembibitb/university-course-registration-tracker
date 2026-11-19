@@ -1,0 +1,324 @@
+/* University Course Registration Tracker — TB branding: dark navy + teal */
+:root {
+  --navy: #0a2540;
+  --navy-dark: #071a2e;
+  --teal: #0ea5a4;
+  --teal-dark: #0b8584;
+  --bg: #f2f5f7;
+  --card: #ffffff;
+  --text: #1c2b36;
+  --muted: #5b6b78;
+  --border: #d9e2e8;
+  --green: #177245;
+  --green-bg: #e3f4ea;
+  --red: #a83232;
+  --red-bg: #fbe9e9;
+  --amber: #8a5a00;
+  --amber-bg: #fdf3dd;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Header */
+.site-header {
+  background: var(--navy);
+  color: #ffffff;
+  padding: 28px 0 24px;
+  border-bottom: 4px solid var(--teal);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: #bcd3de;
+  font-size: 15px;
+}
+
+/* Cards */
+main { padding: 24px 0 32px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.demo-note {
+  background: #eef7f7;
+  border-left: 4px solid var(--teal);
+  padding: 10px 12px;
+  border-radius: 0 8px 8px 0;
+}
+
+.small-note {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.summary {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 8px 0;
+}
+
+.summary.danger { color: var(--red); }
+
+/* Filters */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--navy);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.chip.active {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+/* Course cards */
+.results-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.result-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  border-top: 5px solid var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.result-card.status-booked { border-top-color: var(--green); }
+.result-card.status-pending { border-top-color: var(--red); }
+
+.result-label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.result-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.result-sub {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.result-sub.alert { color: var(--red); font-weight: 600; }
+
+.badge {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef7f7;
+  color: var(--navy);
+}
+
+.badge.status-booked { background: var(--green-bg); color: var(--green); }
+.badge.status-pending { background: var(--red-bg); color: var(--red); }
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Timetable */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+th {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+td:first-child { font-weight: 700; color: var(--navy); }
+
+/* Form */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.field select,
+.field input[type="text"],
+.field input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text);
+}
+
+.field select:focus,
+.field input:focus {
+  outline: 2px solid var(--teal);
+  border-color: var(--teal);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #ffffff;
+}
+
+.btn-primary:hover { background: var(--teal-dark); }
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+
+.btn-small {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+/* Checklist */
+.flags label {
+  display: block;
+  margin: 8px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.flags input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+  vertical-align: -3px;
+  margin-right: 8px;
+}
+
+.disclaimer h2 { color: var(--navy); }
+
+/* Footer */
+.site-footer {
+  background: var(--navy-dark);
+  color: #bcd3de;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.site-footer p { margin: 4px 0; }
+.footer-note { font-size: 13px; opacity: 0.85; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .site-header h1 { font-size: 21px; }
+  .form-grid, .results-list { grid-template-columns: 1fr; }
+  .card { padding: 16px; }
+  .btn { width: 100%; }
+}
