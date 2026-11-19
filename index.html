@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="University Course Registration Tracker — track Fall 2026 course registration: code, teacher, days and times, credit hours, weekly timetable and the registration deadline.">
+  <title>University Course Registration Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo" aria-hidden="true">TB</div>
+      <div>
+        <h1>University Course Registration Tracker</h1>
+        <p class="tagline">Fall 2026 — every course, its time, its status</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro card">
+      <h2>Why this matters</h2>
+      <p>Registering Fall 2026 courses took longer than it should have — two
+        courses booked in minutes, and the third one nowhere in the portal.
+        This tracker keeps every course with its code, teacher, days and
+        times, and credit hours, plus a weekly timetable and a countdown to
+        the registration deadline. A course that is missing from the portal
+        is flagged, so you know exactly who to ask. Your list is saved in
+        your browser.</p>
+      <p class="demo-note">Demo example pre-filled below with <strong>real
+        Fall 2026 courses</strong> of an improver student (Fall 2022 batch):
+        Web Technologies and Linear Algebra are booked; Computer Organization
+        &amp; Assembly Language is still missing from the portal.</p>
+    </section>
+
+    <section class="card">
+      <h2>Registration status</h2>
+      <p class="summary" id="summary"></p>
+      <p class="summary" id="countdown"></p>
+      <p class="small-note">Registration deadline: about 2 Dec 2026 — the
+        portal showed "13 days left" on 19 Nov 2026. Confirm the exact date
+        on the portal.</p>
+    </section>
+
+    <section class="card">
+      <h2>Your courses</h2>
+      <div class="filters" id="filters">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="booked">Booked</button>
+        <button type="button" class="chip" data-filter="pending">Pending</button>
+      </div>
+      <div class="results-list" id="course-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Weekly timetable</h2>
+      <p>Only booked courses with confirmed times are shown. The missing
+        course has no confirmed time yet.</p>
+      <div class="table-wrap">
+        <table id="timetable">
+          <thead>
+            <tr><th>Day</th><th>10:50 AM – 12:34 PM</th><th>12:55 – 2:39 PM</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mon</td><td>Linear Algebra (MTH102)</td><td>—</td></tr>
+            <tr><td>Tue</td><td>—</td><td>—</td></tr>
+            <tr><td>Wed</td><td>—</td><td>—</td></tr>
+            <tr><td>Thu</td><td>Linear Algebra (MTH102)</td><td>Web Technologies (CSC209)</td></tr>
+            <tr><td>Fri</td><td>—</td><td>Web Technologies (CSC209)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Add a course</h2>
+      <form id="add-form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="new-code">Course code</label>
+            <input type="text" id="new-code" placeholder="e.g. CSC209" required maxlength="20">
+          </div>
+          <div class="field">
+            <label for="new-name">Course name</label>
+            <input type="text" id="new-name" placeholder="e.g. Web Technologies" required maxlength="60">
+          </div>
+          <div class="field">
+            <label for="new-program">Program / Semester / Section</label>
+            <input type="text" id="new-program" placeholder="e.g. BSCS 5th Semester" maxlength="60">
+          </div>
+          <div class="field">
+            <label for="new-teacher">Teacher</label>
+            <input type="text" id="new-teacher" placeholder="e.g. Muhammad Bilal" maxlength="60">
+          </div>
+          <div class="field">
+            <label for="new-days">Days &amp; time</label>
+            <input type="text" id="new-days" placeholder="e.g. Thu + Fri, 12:55 – 2:39 PM" maxlength="60">
+          </div>
+          <div class="field">
+            <label for="new-credits">Credit hours</label>
+            <input type="number" id="new-credits" min="1" max="6" placeholder="3">
+          </div>
+          <div class="field">
+            <label for="new-status">Status</label>
+            <select id="new-status">
+              <option value="booked">Booked</option>
+              <option value="pending">Pending</option>
+            </select>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn btn-primary">Add course</button>
+          <button type="button" class="btn btn-secondary" id="reset-demo">Reset to demo example</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Before classes start</h2>
+      <div class="flags" id="checklist">
+        <label><input type="checkbox" data-task> Ask Sir Imran whether the COAL course data has been entered in the portal</label>
+        <label><input type="checkbox" data-task> Check the fee voucher on the portal</label>
+        <label><input type="checkbox" data-task> Confirm the weekly timetable matches the portal</label>
+        <label><input type="checkbox" data-task> Save the exam card when it is issued</label>
+      </div>
+      <p class="summary" id="task-summary"></p>
+    </section>
+
+    <section class="card disclaimer">
+      <h2>Important note</h2>
+      <p>This is a <strong>demo tracker</strong>. Course codes, teachers and
+        times are real for the example, but always confirm them on your
+        university portal. Never put a password, phone number, CNIC number
+        or roll number into a tracker or a public post.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>University Course Registration Tracker &middot; Built by Tasleem Bibi &middot; Sukkur, Sindh, Pakistan</p>
+      <p class="footer-note">Sample registration only. Track your own the same way.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
