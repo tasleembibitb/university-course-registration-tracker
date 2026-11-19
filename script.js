@@ -1,18 +1,18 @@
-// University Course Registration Tracker — Fall 2026 courses, statuses, countdown, saved in localStorage.
+// University Course Registration Tracker — sample courses, statuses, countdown, saved in localStorage.
 const STORAGE_KEY = "tb-course-registration-v1";
-const DEADLINE = "2026-12-02"; // portal showed "13 days left" on 19 Nov 2026
+const DEADLINE = "2026-12-15"; // sample deadline — set your own
 
 const DEMO = [
-  { id: "web", code: "CSC209", name: "Web Technologies",
-    program: "BSCS 5th Semester", teacher: "Muhammad Bilal",
-    days: "Thu + Fri, 12:55 – 2:39 PM", credits: 3, status: "booked", note: "Registration confirmed for 2026 Fall." },
-  { id: "la", code: "MTH102", name: "Linear Algebra",
-    program: "BSCS 3rd Semester, Section B", teacher: "Nawab Khan",
-    days: "Mon + Thu, 10:50 AM – 12:34 PM", credits: 3, status: "booked", note: "Registration confirmed for 2026 Fall." },
-  { id: "coal", code: "COAL", name: "Computer Organization & Assembly Language",
-    program: "BSAI 3rd Semester, Section B", teacher: "Mr. Imran Siddiqui",
-    days: "Thu + Fri (time not confirmed)", credits: null, status: "pending",
-    note: "Not found in the portal — searched by name, code and teacher. Ask the teacher whether the course data has been entered." }
+  { id: "prog", code: "CSC101", name: "Introduction to Programming",
+    program: "BSCS 1st Semester", teacher: "Mr. Ahmed",
+    days: "Mon + Wed, 9:00 – 10:30 AM", credits: 3, status: "booked", note: "Registration confirmed." },
+  { id: "calc", code: "MTH201", name: "Calculus",
+    program: "BSCS 2nd Semester", teacher: "Ms. Fatima",
+    days: "Tue + Thu, 11:00 AM – 12:30 PM", credits: 3, status: "booked", note: "Registration confirmed." },
+  { id: "eng", code: "ENG102", name: "English Composition",
+    program: "BSCS 1st Semester", teacher: "Mr. Ali",
+    days: "Fri (time not confirmed)", credits: null, status: "pending",
+    note: "Not found in the portal — ask the teacher whether the course data has been entered." }
 ];
 
 const STATUS_LABEL = { booked: "Booked", pending: "Pending" };
